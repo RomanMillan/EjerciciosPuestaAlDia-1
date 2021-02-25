@@ -1,4 +1,4 @@
-package ponerseAlDiaJavaRoman;
+package ejercicios;
 
 public class Main {
 
