@@ -1,13 +1,13 @@
 package ejercicios;
 
 public class Rectangulo {
-	private int longitud= 1;
-	private int ancho = 1;
+	private int longitud;
+	private int ancho;
 	
 	public Rectangulo(int lonitud, int ancho) {
 		super();
-		this.longitud = lonitud;
-		this.ancho = ancho;
+		this.setAncho(ancho);
+		this.setLonitud(lonitud);
 	}
 
 	public int getLonitud() {
@@ -15,7 +15,9 @@ public class Rectangulo {
 	}
 
 	public void setLonitud(int longitud) {
-		if (longitud > 1 || longitud <20) {
+		if (longitud < 1 || longitud > 20) {
+			this.longitud = 1;
+		}else {
 			this.longitud = longitud;
 		}
 	}
@@ -25,7 +27,9 @@ public class Rectangulo {
 	}
 
 	public void setAncho(int ancho) {
-		if (ancho > 1 || ancho < 20) {
+		if (ancho < 1 || ancho > 20) {
+			this.ancho = 1;
+		}else {
 			this.ancho = ancho;
 		}
 	}
@@ -37,4 +41,6 @@ public class Rectangulo {
 	public int area(int longitud, int ancho) {
 		return this.longitud * this.ancho;
 	}
+
+	
 }
