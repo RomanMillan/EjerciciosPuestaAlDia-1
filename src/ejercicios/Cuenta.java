@@ -2,34 +2,28 @@ package ejercicios;
 
 public class Cuenta {
 	private double saldo;
-	private double ncc;
-	private double numIngresos;
-	private double numReintegros;
+	private String ncc;
+	private int numIngresos;
+	private int numReintegros;
 	
 	public Cuenta(String ncc) {
 		
 	}
 	public Cuenta(double saldo, String ncc) throws Exception {
 		super();
-		if (saldo <0 || saldo == 0) {
-			throw new Exception();
-			
-		}else {
-			this.saldo = saldo;
-			this.numIngresos = 1;
+		if (saldo <=0) {
+			throw new Exception("Saldo no permitido");
 		}
-	}
-	
-
-		@Override
-		public String toString() {
-			// TODO Auto-generated method stub
-			return super.toString();
+		this.saldo = saldo;
+		this.numIngresos = 1;
+		this.ncc = ncc;
+		this.numReintegros = 0;
 		}
+		
 		public double getSaldo() {
 			return saldo;
 		}
-		public double getNcc() {
+		public String getNcc() {
 			return ncc;
 		}
 		public double getNumIngresos() {
@@ -39,12 +33,25 @@ public class Cuenta {
 			return numReintegros;
 		};
 		
-	public void reintegro(double cantidad) {
+	public void reintegro(double cantidad) throws Exception {
+		if (saldo < cantidad || cantidad <=0) {
+			throw new Exception("Error de cantidad");
+		}
 		saldo = saldo - cantidad;
 		this.numReintegros++;
-	}
-	public void ingresos (double cantidad) {
+	} 
+	public void ingresos (double cantidad)throws Exception {
+		if (cantidad <=0) {
+			throw new Exception("Error de cantidad");
+		}
 		saldo = saldo + cantidad;
 		this.numIngresos++;
 	}
+	
+	@Override
+	public String toString() {
+		return "Cuenta [saldo=" + saldo + ", ncc=" + ncc + ", numIngresos=" + numIngresos + ", numReintegros="
+				+ numReintegros + "]";
+	}
+	
 }
