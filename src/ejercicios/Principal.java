@@ -21,33 +21,27 @@ public class Principal {
 				
 				 switch (elec) { 
 				case 1: {
-					double result = cb.getSaldo();
-					System.out.println(result);
-					System.out.println("1 Hacer un reintegro. \n"
-							+ "2 Hacer un ingreso \n"
-							+ "3 Consultar el saldo y numero de reintegros e ingresos. \n"
-							+ "4 Finalizar las operaciones");
-					elec = teclado.nextInt();
+					System.out.print("Introduce la cantidad a reintegrar: ");
+					double reintegro = teclado.nextDouble();
+					cb.reintegro(reintegro);
+					System.out.println("\n");
 					break;
 				}
 				case 2:{
-					System.out.println("Introduce la cantidad: ");
-					double cantidad = cb.getNumIngresos();
-					System.out.println("1 Hacer un reintegro. \n"
-							+ "2 Hacer un ingreso \n"
-							+ "3 Consultar el saldo y numero de reintegros e ingresos. \n"
-							+ "4 Finalizar las operaciones");
-							elec = teclado.nextInt();		
-							break;
+					System.out.print("Introduce la cantidad: ");
+					double ingreso = teclado.nextDouble();
+					cb.ingresos(ingreso);
+					System.out.println("\n");
+					break;
 				}
 				case 3:{
 					double reintegros = cb.getNumReintegros();
 					double ingresos = cb.getNumIngresos();
-					System.out.println("1 Hacer un reintegro. \n"
-							+ "2 Hacer un ingreso \n"
-							+ "3 Consultar el saldo y numero de reintegros e ingresos. \n"
-							+ "4 Finalizar las operaciones");
-					elec = teclado.nextInt();
+					double saldo = cb.getSaldo();
+					System.out.println("El saldo en cuenta es: " + saldo);
+					System.out.println("El numero de reintegros: " + reintegros);
+					System.out.println("El numero de ingresos: " + ingresos);
+					System.out.println("\n");
 					break;
 				}
 				
@@ -59,7 +53,5 @@ public class Principal {
 		catch(Exception roman){
 			System.out.println(roman.getMessage());
 		}
-		
 	}
-
 }

@@ -35,14 +35,14 @@ public class Cuenta {
 		
 	public void reintegro(double cantidad) throws Exception {
 		if (saldo < cantidad || cantidad <=0) {
-			throw new Exception("Error de cantidad");
+			throw new Exception("Cantidad no valida");
 		}
 		saldo = saldo - cantidad;
 		this.numReintegros++;
 	} 
 	public void ingresos (double cantidad)throws Exception {
 		if (cantidad <=0) {
-			throw new Exception("Error de cantidad");
+			throw new Exception("Cantidad no valida");
 		}
 		saldo = saldo + cantidad;
 		this.numIngresos++;
